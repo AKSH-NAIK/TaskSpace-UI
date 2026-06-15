@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = "http://localhost:5000/api" || 'https://taskspace-backend.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -10,7 +10,7 @@ const api = axios.create({
   },
 });
 
-// Request interceptor to attach token
+
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('task_manager_token');
