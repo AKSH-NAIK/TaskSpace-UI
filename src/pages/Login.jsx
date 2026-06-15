@@ -10,7 +10,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Redirect if already logged in
+
   useEffect(() => {
     const token = localStorage.getItem('task_manager_token');
     if (token) {
@@ -32,7 +32,7 @@ const Login = () => {
 
     try {
       const response = await api.post('/auth/login', { email, password });
-      
+
       if (response.data.success && response.data.token) {
         localStorage.setItem('task_manager_token', response.data.token);
         localStorage.setItem('task_manager_user', JSON.stringify(response.data.user));
